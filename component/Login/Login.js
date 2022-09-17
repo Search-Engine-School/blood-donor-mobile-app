@@ -10,16 +10,10 @@ import {
 } from "react-native";
 import bgImage from "../../assets/register-bg.png";
 
-export default function Register({ navigation }) {
+export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
-        <Text style={styles.text}>Create Account</Text>
-        <Text style={styles.inputLabel}>Full Name</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="type your name"
-        ></TextInput>
         <Text style={styles.inputLabel}>Phone Number</Text>
         <TextInput
           style={styles.input}
@@ -27,17 +21,12 @@ export default function Register({ navigation }) {
         ></TextInput>
         <Text style={styles.inputLabel}>Password</Text>
         <TextInput style={styles.input} defaultValue="password"></TextInput>
-        <Text style={styles.inputLabel}>Confirm Password</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="confirm password"
-        ></TextInput>
         <Pressable style={styles.btn}>
-          <Text style={styles.textBtn}>Sign up</Text>
+          <Text style={styles.textBtn}>Login</Text>
         </Pressable>
         <Text style={styles.orText}>Or</Text>
         <Pressable
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("Home")}
           style={styles.btn2}
         >
           <View style={styles.gicon}>
@@ -46,7 +35,10 @@ export default function Register({ navigation }) {
               source={require("../../assets/google-icon.png")}
             ></Image>
           </View>
-          <Text style={styles.textBtn2}>Sign up with Google</Text>
+          <Text style={styles.textBtn2}>Sign in with Google</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.orText}>Create New Account</Text>
         </Pressable>
       </ImageBackground>
       <StatusBar style="auto" />
@@ -132,6 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: "skyblue",
     borderRadius: 5,
     marginTop: 15,
+    marginBottom: 20,
   },
   gicon: {
     backgroundColor: "#fff",
