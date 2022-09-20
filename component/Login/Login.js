@@ -25,10 +25,7 @@ export default function Login({ navigation }) {
           <Text style={styles.textBtn}>Login</Text>
         </Pressable>
         <Text style={styles.orText}>Or</Text>
-        <Pressable
-          onPress={() => navigation.navigate("Home")}
-          style={styles.btn2}
-        >
+        <Pressable style={styles.btn2}>
           <View style={styles.gicon}>
             <Image
               style={styles.googleImage}
@@ -37,7 +34,7 @@ export default function Login({ navigation }) {
           </View>
           <Text style={styles.textBtn2}>Sign in with Google</Text>
         </Pressable>
-        <Pressable>
+        <Pressable onPress={() => navigation.navigate("Register")}>
           <Text style={styles.orText}>Create New Account</Text>
         </Pressable>
       </ImageBackground>
