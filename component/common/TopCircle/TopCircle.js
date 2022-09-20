@@ -8,7 +8,7 @@ export default function TopCircle() {
     <View>
       <View style={styles.circle}></View>
       <View style={styles.circle3}></View>
-      <View style={styles.circle2}></View>
+      <View opacity={0.7} style={styles.circle2}></View>
       <View style={styles.topLogo}>
         <Pressable>
           <Image style={styles.arrow} source={arrow}></Image>
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#DB1F26",
     borderRadius: 100,
     position: "absolute",
+    elevation: 10,
     top: -30,
     left: -30,
     zIndex: 5,
@@ -36,7 +37,8 @@ const styles = StyleSheet.create({
   circle2: {
     height: 200,
     width: 200,
-    backgroundColor: "#fff",
+    backgroundColor: "#FF0E0E",
+    elevation: 10,
     borderRadius: 100,
     position: "absolute",
     top: 0,
@@ -46,12 +48,13 @@ const styles = StyleSheet.create({
   circle3: {
     height: 200,
     width: 200,
-    backgroundColor: "#fff",
+    backgroundColor: "#FF0E0E",
     borderRadius: 100,
     position: "absolute",
+    elevation: 10,
     top: -80,
     left: 0,
-    zIndex: 3,
+    zIndex: 2,
   },
   topLogo: {
     position: "absolute",

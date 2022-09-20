@@ -9,34 +9,39 @@ import {
   View,
 } from "react-native";
 import bgImage from "../../assets/register-bg.png";
+import TopCircle from "../common/TopCircle/TopCircle";
 
 export default function Login({ navigation }) {
   return (
     <View style={styles.container}>
+      <StatusBar translucent={false}></StatusBar>
+      <TopCircle></TopCircle>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
-        <Text style={styles.inputLabel}>Phone Number</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="type your phone number"
-        ></TextInput>
-        <Text style={styles.inputLabel}>Password</Text>
-        <TextInput style={styles.input} defaultValue="password"></TextInput>
-        <Pressable style={styles.btn}>
-          <Text style={styles.textBtn}>Login</Text>
-        </Pressable>
-        <Text style={styles.orText}>Or</Text>
-        <Pressable style={styles.btn2}>
-          <View style={styles.gicon}>
-            <Image
-              style={styles.googleImage}
-              source={require("../../assets/google-icon.png")}
-            ></Image>
-          </View>
-          <Text style={styles.textBtn2}>Sign in with Google</Text>
-        </Pressable>
-        <Pressable onPress={() => navigation.navigate("Register")}>
-          <Text style={styles.orText}>Create New Account</Text>
-        </Pressable>
+        <View style={styles.loginBox}>
+          <Text style={styles.inputLabel}>Phone Number</Text>
+          <TextInput
+            style={styles.input}
+            defaultValue="type your phone number"
+          ></TextInput>
+          <Text style={styles.inputLabel}>Password</Text>
+          <TextInput style={styles.input} defaultValue="password"></TextInput>
+          <Pressable style={styles.btn}>
+            <Text style={styles.textBtn}>Login</Text>
+          </Pressable>
+          <Text style={styles.orText}>Or</Text>
+          <Pressable style={styles.btn2}>
+            <View style={styles.gicon}>
+              <Image
+                style={styles.googleImage}
+                source={require("../../assets/google-icon.png")}
+              ></Image>
+            </View>
+            <Text style={styles.textBtn2}>Sign in with Google</Text>
+          </Pressable>
+          <Pressable onPress={() => navigation.navigate("Register")}>
+            <Text style={styles.orText}>Create New Account?</Text>
+          </Pressable>
+        </View>
       </ImageBackground>
       <StatusBar style="auto" />
     </View>
@@ -46,6 +51,10 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loginBox: {
+    zIndex: 11,
+    marginTop: 100,
   },
   text: {
     color: "#DB1F26",
@@ -108,7 +117,7 @@ const styles = StyleSheet.create({
   },
   orText: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: 20,
     textAlign: "center",
   },
   btn2: {
@@ -116,9 +125,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 211,
     height: 45,
-    justifyContent: "space-evenly",
     alignItems: "center",
-    backgroundColor: "skyblue",
+    backgroundColor: "#279DF3",
     borderRadius: 5,
     marginTop: 15,
     marginBottom: 20,
@@ -128,6 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 42,
     width: 42,
+    marginHorizontal: 2,
     alignItems: "center",
     borderRadius: 5,
   },
@@ -138,5 +147,6 @@ const styles = StyleSheet.create({
   textBtn2: {
     color: "#fff",
     fontSize: 15,
+    marginHorizontal: 10,
   },
 });
