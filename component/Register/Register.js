@@ -1,62 +1,79 @@
-import { StatusBar } from "expo-status-bar";
 import {
   Image,
   ImageBackground,
   Pressable,
+  StatusBar,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import bgImage from "../../assets/register-bg.png";
+import TopCircle from "./../common/TopCircle/TopCircle";
 
 export default function Register({ navigation }) {
+  console.log(navigation);
   return (
-    <View style={styles.container}>
-      <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
-        <Text style={styles.text}>Create Account</Text>
-        <Text style={styles.inputLabel}>Full Name</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="type your name"
-        ></TextInput>
-        <Text style={styles.inputLabel}>Phone Number</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="type your phone number"
-        ></TextInput>
-        <Text style={styles.inputLabel}>Password</Text>
-        <TextInput style={styles.input} defaultValue="password"></TextInput>
-        <Text style={styles.inputLabel}>Confirm Password</Text>
-        <TextInput
-          style={styles.input}
-          defaultValue="confirm password"
-        ></TextInput>
-        <Pressable style={styles.btn}>
-          <Text style={styles.textBtn}>Sign up</Text>
-        </Pressable>
-        <Text style={styles.orText}>Or</Text>
-        <Pressable
-          onPress={() => navigation.navigate("Login")}
-          style={styles.btn2}
+    <KeyboardAwareScrollView>
+      <View style={styles.container}>
+        <StatusBar translucent={false}></StatusBar>
+        <TopCircle></TopCircle>
+        <ImageBackground
+          source={bgImage}
+          resizeMode="cover"
+          style={styles.image}
         >
-          <View style={styles.gicon}>
-            <Image
-              style={styles.googleImage}
-              source={require("../../assets/google-icon.png")}
-            ></Image>
+          <View style={styles.registerBox}>
+            <Text style={styles.text}>Create Account</Text>
+            <Text style={styles.inputLabel}>Full Name</Text>
+            <TextInput
+              style={styles.input}
+              defaultValue="type your name"
+            ></TextInput>
+            <Text style={styles.inputLabel}>Phone Number</Text>
+            <TextInput
+              style={styles.input}
+              defaultValue="type your phone number"
+            ></TextInput>
+            <Text style={styles.inputLabel}>Password</Text>
+            <TextInput style={styles.input} defaultValue="password"></TextInput>
+            <Text style={styles.inputLabel}>Confirm Password</Text>
+            <TextInput
+              style={styles.input}
+              defaultValue="confirm password"
+            ></TextInput>
+            <Pressable style={styles.btn}>
+              <Text style={styles.textBtn}>Sign up</Text>
+            </Pressable>
+            <Text style={styles.orText}>Or</Text>
+            <Pressable
+              onPress={() => navigation.navigate("Login")}
+              style={styles.btn2}
+            >
+              <View style={styles.gicon}>
+                <Image
+                  style={styles.googleImage}
+                  source={require("../../assets/google-icon.png")}
+                ></Image>
+              </View>
+              <Text style={styles.textBtn2}>Sign up with Google</Text>
+            </Pressable>
           </View>
-          <Text style={styles.textBtn2}>Sign up with Google</Text>
-        </Pressable>
-      </ImageBackground>
-      <StatusBar style="auto" />
-    </View>
+        </ImageBackground>
+      </View>
+    </KeyboardAwareScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: 1000,
+  },
+  registerBox: {
+    top: 50,
+    zIndex: 100,
   },
   text: {
     color: "#DB1F26",
@@ -127,9 +144,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 211,
     height: 45,
-    justifyContent: "space-evenly",
     alignItems: "center",
-    backgroundColor: "skyblue",
+    backgroundColor: "#279DF3",
     borderRadius: 5,
     marginTop: 15,
   },
@@ -139,6 +155,7 @@ const styles = StyleSheet.create({
     height: 42,
     width: 42,
     alignItems: "center",
+    marginHorizontal: 2,
     borderRadius: 5,
   },
   googleImage: {
@@ -148,5 +165,6 @@ const styles = StyleSheet.create({
   textBtn2: {
     color: "#fff",
     fontSize: 15,
+    marginHorizontal: 10,
   },
 });

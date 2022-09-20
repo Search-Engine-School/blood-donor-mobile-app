@@ -1,16 +1,19 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
 import arrow from "../../../assets/arrow-icon.png";
 import topLogo from "../../../assets/white-logo.png";
 
 export default function TopCircle() {
+  const navigation = useNavigation();
+  console.log(navigation);
   return (
     <View>
       <View style={styles.circle}></View>
       <View style={styles.circle3}></View>
       <View opacity={0.7} style={styles.circle2}></View>
       <View style={styles.topLogo}>
-        <Pressable>
+        <Pressable onPress={() => navigation.goBack()}>
           <Image style={styles.arrow} source={arrow}></Image>
         </Pressable>
         <Image style={styles.topLogoimg} source={topLogo}></Image>

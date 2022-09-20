@@ -1,8 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import {
   Image,
   ImageBackground,
   Pressable,
+  StatusBar,
   StyleSheet,
   Text,
   TextInput,
@@ -43,7 +43,6 @@ export default function Login({ navigation }) {
           </Pressable>
         </View>
       </ImageBackground>
-      <StatusBar style="auto" />
     </View>
   );
 }
