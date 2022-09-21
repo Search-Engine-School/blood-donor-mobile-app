@@ -6,7 +6,6 @@ import topLogo from "../../../assets/white-logo.png";
 
 export default function TopCircle() {
   const navigation = useNavigation();
-  console.log(navigation);
   return (
     <View>
       <View style={styles.circle}></View>
