@@ -205,6 +205,8 @@ const styles = StyleSheet.create({
   item: {
     height: 70,
     width: 70,
+    borderRadius: 5,
+    elevation: 10,
     marginHorizontal: 10,
     marginVertical: 10,
     alignItems: "center",
