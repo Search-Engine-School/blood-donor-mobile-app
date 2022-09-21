@@ -13,7 +13,6 @@ import bgImage from "../../assets/register-bg.png";
 import TopCircle from "./../common/TopCircle/TopCircle";
 
 export default function Register({ navigation }) {
-  console.log(navigation);
   return (
     <KeyboardAwareScrollView>
       <View style={styles.container}>

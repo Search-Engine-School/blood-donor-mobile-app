@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import BloodGroup from "./component/BloodGroup/BloodGroup";
 import Home from "./component/Home/Home";
 import Login from "./component/Login/Login";
 import Register from "./component/Register/Register";
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="verify" component={Verification} />
+        <Stack.Screen name="BloodGroup" component={BloodGroup} />
       </Stack.Navigator>
     </NavigationContainer>
   );
