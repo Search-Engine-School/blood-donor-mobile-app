@@ -14,7 +14,7 @@ export default function Home({ navigation }) {
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <Image style={styles.logo} source={require("../../assets/logo.png")} />
         <Pressable
-          onPress={() => navigation.navigate("BloodGroup")}
+          onPress={() => navigation.navigate("JoinOurCommunity")}
           style={styles.btn}
         >
           <Text style={styles.textBtn}>Start</Text>
