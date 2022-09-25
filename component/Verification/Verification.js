@@ -8,6 +8,11 @@ import {
   TextInput,
   View,
 } from "react-native";
+import {
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import bgImg from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
 
@@ -29,7 +34,7 @@ export default function Verification({ navigation }) {
             <TextInput style={styles.input}></TextInput>
           </View>
           <Pressable
-            onPress={() => navigation.navigate("Login")}
+            onPress={() => navigation.navigate("BloodGroup")}
             style={styles.btn}
           >
             <Text style={styles.textBtn}>VERIFY</Text>
@@ -49,8 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   pinBox: {
-    height: 450,
-    width: 390,
+    height: responsiveScreenHeight(50),
+    width: responsiveScreenWidth(95),
     zIndex: 10,
     alignSelf: "center",
     display: "flex",
@@ -61,13 +66,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   headingTxt: {
-    fontSize: 25,
+    fontSize: responsiveScreenFontSize(3),
     color: "#000",
     fontWeight: "700",
   },
   paragraphTxt: {
     color: "#000",
-    marginVertical: 30,
+    marginVertical: responsiveScreenWidth(2),
     textAlign: "center",
   },
   input: {
@@ -80,27 +85,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   inputPin: {
-    width: 300,
+    width: responsiveScreenWidth(70),
     marginTop: 20,
     justifyContent: "space-around",
     flexDirection: "row",
   },
   btn: {
-    width: 254,
-    height: 61,
-    marginRight: 25,
-    marginLeft: 25,
+    width: responsiveScreenWidth(50),
+    height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    bottom: -50,
+    bottom: responsiveScreenHeight(-5),
     elevation: 20,
     marginBottom: 15,
   },
   textBtn: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveScreenFontSize(3),
   },
 });
