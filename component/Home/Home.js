@@ -2,25 +2,25 @@ import {
   Image,
   ImageBackground,
   Pressable,
+  SafeAreaView,
   StyleSheet,
   Text,
-  View,
 } from "react-native";
 import bgImage from "../../assets/bg-image.png";
 
 export default function Home({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <Image style={styles.logo} source={require("../../assets/logo.png")} />
         <Pressable
-          onPress={() => navigation.navigate("JoinOurCommunity")}
+          onPress={() => navigation.navigate("Login")}
           style={styles.btn}
         >
           <Text style={styles.textBtn}>Start</Text>
         </Pressable>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -31,15 +31,14 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
   },
   logo: {
     width: "100%",
   },
   btn: {
-    width: 377,
+    width: "50%",
     height: 61,
-    marginRight: 25,
-    marginLeft: 25,
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",

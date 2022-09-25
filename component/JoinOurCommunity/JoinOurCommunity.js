@@ -2,6 +2,7 @@ import React from "react";
 import {
   ImageBackground,
   Pressable,
+  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
@@ -13,7 +14,7 @@ import TopCircle from "../common/TopCircle/TopCircle";
 
 export default function JoinOurCommunity({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar translucent={false}></StatusBar>
       <TopCircle></TopCircle>
       <ImageBackground source={bgImg} style={styles.image}>
@@ -78,7 +79,7 @@ export default function JoinOurCommunity({ navigation }) {
           </Pressable>
         </View>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -89,13 +90,12 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
   },
   pinBox: {
     height: 450,
-    width: 390,
+    width: "95%",
     zIndex: 10,
-    alignSelf: "center",
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
@@ -111,13 +111,11 @@ const styles = StyleSheet.create({
     height: 40,
     color: "#6A6A6A",
     fontSize: 16,
-    paddingRight: 10,
   },
   btn: {
-    width: 377,
+    width: "90%",
     height: 61,
-    marginRight: 25,
-    marginLeft: 25,
+    paddingHorizontal: 30,
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",
