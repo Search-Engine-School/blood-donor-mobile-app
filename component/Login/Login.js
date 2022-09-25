@@ -2,18 +2,24 @@ import {
   Image,
   ImageBackground,
   Pressable,
+  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
+import {
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
 
 export default function Login({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar translucent={false}></StatusBar>
       <TopCircle></TopCircle>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
@@ -25,25 +31,31 @@ export default function Login({ navigation }) {
           ></TextInput>
           <Text style={styles.inputLabel}>Password</Text>
           <TextInput style={styles.input} defaultValue="password"></TextInput>
-          <Pressable style={styles.btn}>
-            <Text style={styles.textBtn}>Login</Text>
-          </Pressable>
-          <Text style={styles.orText}>Or</Text>
-          <Pressable style={styles.btn2}>
-            <View style={styles.gicon}>
-              <Image
-                style={styles.googleImage}
-                source={require("../../assets/google-icon.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textBtn2}>Sign in with Google</Text>
-          </Pressable>
-          <Pressable onPress={() => navigation.navigate("Register")}>
-            <Text style={styles.orText}>Create New Account?</Text>
-          </Pressable>
         </View>
+        <Pressable style={styles.btn}>
+          <Text adjustsFontSizeToFit style={styles.textBtn}>
+            Login
+          </Text>
+        </Pressable>
+        <Text style={styles.orText}>Or</Text>
+        <Pressable style={styles.btn2}>
+          <View style={styles.gicon}>
+            <Image
+              style={styles.googleImage}
+              source={require("../../assets/google-icon.png")}
+            ></Image>
+          </View>
+          <Text style={styles.textBtn2} adjustsFontSizeToFit>
+            Sign in with Google
+          </Text>
+        </Pressable>
+        <Pressable onPress={() => navigation.navigate("Register")}>
+          <Text adjustsFontSizeToFit style={styles.orText}>
+            Create New Account?
+          </Text>
+        </Pressable>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -53,30 +65,26 @@ const styles = StyleSheet.create({
   },
   loginBox: {
     zIndex: 11,
-    marginTop: 100,
+    width: responsiveScreenWidth(90),
   },
   text: {
     color: "#DB1F26",
     textAlign: "center",
-    fontSize: 36,
+    fontSize: responsiveScreenFontSize(2),
     fontWeight: "700",
     marginBottom: 14,
   },
   inputLabel: {
     color: "rgba(68, 68, 68, 0.99)",
-    fontSize: 20,
+    fontSize: responsiveScreenFontSize(3),
     fontWeight: "600",
-    marginRight: 25,
-    marginLeft: 25,
-    marginBottom: 17,
+    marginBottom: 15,
   },
   input: {
-    height: 61,
+    height: responsiveScreenHeight(5),
     backgroundColor: "white",
     color: "#6A6A6A",
-    fontSize: 16,
-    marginRight: 25,
-    marginLeft: 25,
+    fontSize: responsiveScreenFontSize(2),
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
@@ -94,35 +102,34 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
   },
   logo: {
     width: "100%",
   },
   btn: {
-    width: 377,
-    height: 61,
-    marginRight: 25,
-    marginLeft: 25,
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
     marginBottom: 15,
+    elevation: 20,
   },
   textBtn: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveScreenFontSize(4),
   },
   orText: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: responsiveScreenFontSize(3),
     textAlign: "center",
   },
   btn2: {
     flexDirection: "row",
-    alignSelf: "center",
-    width: 211,
+    width: responsiveScreenWidth(50),
     height: 45,
     alignItems: "center",
     backgroundColor: "#279DF3",
@@ -145,7 +152,7 @@ const styles = StyleSheet.create({
   },
   textBtn2: {
     color: "#fff",
-    fontSize: 15,
-    marginHorizontal: 10,
+    fontSize: responsiveScreenFontSize(2),
+    marginHorizontal: "2%",
   },
 });
