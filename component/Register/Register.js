@@ -2,6 +2,7 @@ import {
   Image,
   ImageBackground,
   Pressable,
+  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
@@ -9,13 +10,18 @@ import {
   View,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import {
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "./../common/TopCircle/TopCircle";
 
 export default function Register({ navigation }) {
   return (
     <KeyboardAwareScrollView>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <StatusBar translucent={false}></StatusBar>
         <TopCircle></TopCircle>
         <ImageBackground
@@ -42,25 +48,25 @@ export default function Register({ navigation }) {
               style={styles.input}
               defaultValue="confirm password"
             ></TextInput>
-            <Pressable style={styles.btn}>
-              <Text style={styles.textBtn}>Sign up</Text>
-            </Pressable>
-            <Text style={styles.orText}>Or</Text>
-            <Pressable
-              onPress={() => navigation.navigate("Login")}
-              style={styles.btn2}
-            >
-              <View style={styles.gicon}>
-                <Image
-                  style={styles.googleImage}
-                  source={require("../../assets/google-icon.png")}
-                ></Image>
-              </View>
-              <Text style={styles.textBtn2}>Sign up with Google</Text>
-            </Pressable>
           </View>
+          <Pressable style={styles.btn}>
+            <Text style={styles.textBtn}>Sign up</Text>
+          </Pressable>
+          <Text style={styles.orText}>Or</Text>
+          <Pressable
+            onPress={() => navigation.navigate("verify")}
+            style={styles.btn2}
+          >
+            <View style={styles.gicon}>
+              <Image
+                style={styles.googleImage}
+                source={require("../../assets/google-icon.png")}
+              ></Image>
+            </View>
+            <Text style={styles.textBtn2}>Sign up with Google</Text>
+          </Pressable>
         </ImageBackground>
-      </View>
+      </SafeAreaView>
     </KeyboardAwareScrollView>
   );
 }
@@ -68,34 +74,30 @@ export default function Register({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 1000,
+    height: responsiveScreenHeight(100),
   },
   registerBox: {
-    top: 50,
     zIndex: 100,
+    width: responsiveScreenWidth(90),
   },
   text: {
     color: "#DB1F26",
     textAlign: "center",
-    fontSize: 36,
+    fontSize: responsiveScreenFontSize(4),
     fontWeight: "700",
     marginBottom: 14,
   },
   inputLabel: {
     color: "rgba(68, 68, 68, 0.99)",
-    fontSize: 20,
+    fontSize: responsiveScreenFontSize(2.5),
     fontWeight: "600",
-    marginRight: 25,
-    marginLeft: 25,
     marginBottom: 17,
   },
   input: {
-    height: 61,
+    height: responsiveScreenHeight(5),
     backgroundColor: "white",
     color: "#6A6A6A",
-    fontSize: 16,
-    marginRight: 25,
-    marginLeft: 25,
+    fontSize: responsiveScreenFontSize(2),
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
@@ -113,48 +115,48 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "center",
+    alignItems: "center",
+    marginTop: responsiveScreenHeight(5),
   },
   logo: {
-    width: "100%",
+    width: responsiveScreenWidth(100),
   },
   btn: {
-    width: 377,
-    height: 61,
-    marginRight: 25,
-    marginLeft: 25,
+    width: responsiveScreenWidth(85),
+    height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 15,
     marginBottom: 15,
   },
   textBtn: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveScreenFontSize(4),
   },
   orText: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveScreenFontSize(3),
     textAlign: "center",
   },
   btn2: {
     flexDirection: "row",
-    alignSelf: "center",
-    width: 211,
+    width: responsiveScreenWidth(50),
     height: 45,
     alignItems: "center",
     backgroundColor: "#279DF3",
     borderRadius: 5,
     marginTop: 15,
+    marginBottom: responsiveScreenHeight(3),
   },
   gicon: {
     backgroundColor: "#fff",
     justifyContent: "center",
     height: 42,
     width: 42,
-    alignItems: "center",
     marginHorizontal: 2,
+    alignItems: "center",
     borderRadius: 5,
   },
   googleImage: {
@@ -163,7 +165,7 @@ const styles = StyleSheet.create({
   },
   textBtn2: {
     color: "#fff",
-    fontSize: 15,
-    marginHorizontal: 10,
+    fontSize: responsiveScreenFontSize(2),
+    marginHorizontal: "2%",
   },
 });

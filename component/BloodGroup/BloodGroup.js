@@ -12,6 +12,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import {
+  responsiveFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import bgImage from "../../assets/bg-image.png";
 import bloodDrop from "../../assets/blood-drop.png";
 import locationIconGray from "../../assets/location-icon-gray.png";
@@ -61,7 +66,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-export default function BloodGroup() {
+export default function BloodGroup({ navigation }) {
   const [selectedId, setSelectedId] = useState(null);
   const [range, setRange] = useState("50");
 
@@ -113,16 +118,13 @@ export default function BloodGroup() {
             style={{
               flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-between",
-              width: "100%",
-              height: 61,
+              justifyContent: "space-around",
+              width: responsiveScreenWidth(90),
+              height: responsiveScreenHeight(5),
               backgroundColor: "white",
               color: "#6A6A6A",
-              fontSize: 16,
-              marginRight: 25,
-              marginLeft: 25,
-              paddingLeft: 10,
-              paddingRight: 10,
+              paddingLeft: 5,
+              paddingRight: 5,
               borderRadius: 5,
               marginBottom: 15,
               shadowColor: "#9A9A9A",
@@ -136,12 +138,9 @@ export default function BloodGroup() {
               elevation: 8,
             }}
           >
-            <Image
-              style={{ marginRight: 10 }}
-              source={locationIconGray}
-            ></Image>
+            <Image source={locationIconGray}></Image>
             <TextInput
-              style={{ width: "80%" }}
+              style={{ width: responsiveScreenWidth(50) }}
               defaultValue="Dhaka"
             ></TextInput>
             <Image style={{ marginRight: 10 }} source={tick}></Image>
@@ -158,10 +157,10 @@ export default function BloodGroup() {
             <Text style={styles.text2}>Weight</Text>
             <Text style={styles.text3}>{range}KGS</Text>
           </View>
-          <View style={{ width: 390 }}>
+          <View style={{ width: responsiveScreenWidth(100) }}>
             <Slider
               style={{
-                width: "100%",
+                width: responsiveScreenWidth(100),
                 height: 40,
               }}
               minimumValue={0}
@@ -173,7 +172,10 @@ export default function BloodGroup() {
               onValueChange={(value) => setRange(parseInt(value))}
             ></Slider>
           </View>
-          <Pressable style={styles.btn}>
+          <Pressable
+            onPress={() => navigation.navigate("JoinOurCommunity")}
+            style={styles.btn}
+          >
             <Text style={styles.textBtn}>Done</Text>
           </Pressable>
         </View>
@@ -193,18 +195,18 @@ const styles = StyleSheet.create({
   },
   heading: {
     alignItems: "center",
-    width: 390,
+    width: responsiveScreenWidth(90),
     zIndex: 100,
   },
   text1: {
-    fontSize: 40,
+    fontSize: responsiveFontSize(5),
     color: "#DB1F26",
     fontWeight: "700",
     textAlign: "center",
   },
   item: {
-    height: 70,
-    width: 70,
+    height: responsiveScreenHeight(7),
+    width: responsiveScreenHeight(7),
     borderRadius: 5,
     elevation: 10,
     marginHorizontal: 10,
@@ -213,32 +215,31 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontSize: 30,
+    fontSize: responsiveFontSize(3),
     fontWeight: "500",
   },
   bloodGrpList: {
-    height: 200,
+    height: responsiveScreenHeight(20),
   },
   text2: {
-    fontSize: 25,
+    fontSize: responsiveFontSize(3),
     fontWeight: "700",
     color: "#fff",
     marginLeft: 5,
-    marginRight: 200,
+    marginRight: responsiveScreenWidth(45),
   },
   text3: {
-    fontSize: 25,
+    fontSize: responsiveFontSize(3),
     fontWeight: "700",
     color: "#fff",
     marginLeft: 5,
   },
   btn: {
-    width: 377,
-    height: 61,
-    marginRight: 25,
-    marginLeft: 25,
+    width: responsiveScreenWidth(60),
+    height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
+    elevation: 20,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
@@ -246,6 +247,6 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveFontSize(4),
   },
 });

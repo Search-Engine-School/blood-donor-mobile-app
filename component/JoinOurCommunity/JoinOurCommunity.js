@@ -9,6 +9,11 @@ import {
   TextInput,
   View,
 } from "react-native";
+import {
+  responsiveScreenFontSize,
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import bgImg from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
 
@@ -93,8 +98,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pinBox: {
-    height: 450,
-    width: "95%",
+    height: responsiveScreenHeight(40),
+    width: responsiveScreenWidth(95),
     zIndex: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -104,17 +109,17 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     color: "#DB1F26",
-    fontSize: 16,
+    fontSize: responsiveScreenFontSize(2),
     fontWeight: "600",
   },
   input: {
     height: 40,
     color: "#6A6A6A",
-    fontSize: 16,
+    fontSize: responsiveScreenFontSize(2),
   },
   btn: {
-    width: "90%",
-    height: 61,
+    width: responsiveScreenWidth(80),
+    height: responsiveScreenHeight(6),
     paddingHorizontal: 30,
     backgroundColor: "#EB3738",
     borderRadius: 100,
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: responsiveScreenFontSize(3),
     fontWeight: "700",
   },
 });
