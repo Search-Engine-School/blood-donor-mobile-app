@@ -1,7 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
-import { responsiveScreenHeight } from "react-native-responsive-dimensions";
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import arrow from "../../../assets/arrow-icon.png";
 import topLogo from "../../../assets/white-logo.png";
 
@@ -68,9 +71,11 @@ const styles = StyleSheet.create({
   },
   topLogoimg: {
     marginTop: 20,
+    height: responsiveScreenWidth(9),
+    width: responsiveScreenWidth(9),
   },
   arrow: {
-    height: 20,
-    width: 20,
+    height: responsiveScreenWidth(4),
+    width: responsiveScreenWidth(4),
   },
 });

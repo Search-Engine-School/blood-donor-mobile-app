@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pinBox: {
-    height: responsiveScreenHeight(40),
+    height: responsiveScreenHeight(50),
     width: responsiveScreenWidth(95),
     zIndex: 10,
     alignItems: "center",
