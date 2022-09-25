@@ -1,14 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import bgImage from "../../assets/bg-image.png";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <Image style={styles.logo} source={require("../../assets/logo.png")} />
+        <Pressable
+          onPress={() => navigation.navigate("JoinOurCommunity")}
+          style={styles.btn}
+        >
+          <Text style={styles.textBtn}>Start</Text>
+        </Pressable>
       </ImageBackground>
-      <StatusBar style="auto" />
     </View>
   );
 }
@@ -23,5 +34,21 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: "100%",
+  },
+  btn: {
+    width: 377,
+    height: 61,
+    marginRight: 25,
+    marginLeft: 25,
+    backgroundColor: "#EB3738",
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 15,
+  },
+  textBtn: {
+    color: "#fff",
+    fontSize: 30,
   },
 });
