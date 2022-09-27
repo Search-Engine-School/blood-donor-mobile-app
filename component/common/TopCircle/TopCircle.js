@@ -1,7 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, View } from "react-native";
-import { responsiveScreenHeight } from "react-native-responsive-dimensions";
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+} from "react-native-responsive-dimensions";
 import arrow from "../../../assets/arrow-icon.png";
 import topLogo from "../../../assets/white-logo.png";
 
@@ -33,8 +36,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     position: "absolute",
     elevation: 20,
-    top: -30,
-    left: -30,
+    top: responsiveScreenWidth(-5),
+    left: responsiveScreenWidth(-5),
     zIndex: 5,
   },
   circle2: {
@@ -44,8 +47,8 @@ const styles = StyleSheet.create({
     elevation: 20,
     borderRadius: 100,
     position: "absolute",
-    top: 0,
-    left: -80,
+    top: responsiveScreenWidth(0),
+    left: responsiveScreenWidth(-20),
     zIndex: 3,
   },
   circle3: {
@@ -55,22 +58,24 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     position: "absolute",
     elevation: 20,
-    top: -80,
-    left: 0,
+    top: responsiveScreenWidth(-20),
+    left: responsiveScreenWidth(0),
     zIndex: 2,
   },
   topLogo: {
     position: "absolute",
-    top: 20,
-    left: 20,
+    top: responsiveScreenHeight(2),
+    left: responsiveScreenHeight(2),
     zIndex: 6,
     flexDirection: "row",
   },
   topLogoimg: {
     marginTop: 20,
+    height: responsiveScreenWidth(9),
+    width: responsiveScreenWidth(9),
   },
   arrow: {
-    height: 20,
-    width: 20,
+    height: responsiveScreenWidth(4),
+    width: responsiveScreenWidth(4),
   },
 });
