@@ -6,6 +6,7 @@ import Home from "./component/Home/Home";
 import JoinOurCommunity from "./component/JoinOurCommunity/JoinOurCommunity";
 import Login from "./component/Login/Login";
 import Register from "./component/Register/Register";
+import SearchBlood from "./component/SearchBlood/SearchBlood";
 import Verification from "./component/Verification/Verification";
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="verify" component={Verification} />
         <Stack.Screen name="BloodGroup" component={BloodGroup} />
         <Stack.Screen name="JoinOurCommunity" component={JoinOurCommunity} />
+        <Stack.Screen name="SearchBlood" component={SearchBlood} />
       </Stack.Navigator>
     </NavigationContainer>
   );

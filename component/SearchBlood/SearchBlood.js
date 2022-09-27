@@ -1,10 +1,29 @@
 import React from "react";
-import { Text, View } from "react-native";
+import {
+  ImageBackground,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+} from "react-native";
+import bgImg from "../../assets/bg-three.png";
+import TopBar from "../common/TopBar/TopBar";
 
-export default function SearchBlood() {
+export default function JoinOurCommunity() {
   return (
-    <View>
-      <Text>SearchBlood</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar translucent={false}></StatusBar>
+      <ImageBackground source={bgImg} style={styles.image}>
+        <TopBar></TopBar>
+      </ImageBackground>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+  },
+});

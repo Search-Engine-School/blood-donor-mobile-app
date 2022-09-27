@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   },
   btn2: {
     flexDirection: "row",
-    width: responsiveScreenWidth(50),
+    width: responsiveScreenWidth(55),
     height: 45,
     alignItems: "center",
     backgroundColor: "#279DF3",
@@ -166,6 +166,6 @@ const styles = StyleSheet.create({
   textBtn2: {
     color: "#fff",
     fontSize: responsiveScreenFontSize(2),
-    marginHorizontal: "2%",
+    marginHorizontal: responsiveScreenWidth(2),
   },
 });

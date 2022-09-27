@@ -26,7 +26,7 @@ export default function JoinOurCommunity({ navigation }) {
         <View style={styles.pinBox}>
           <View
             style={{
-              width: "90%",
+              width: responsiveScreenWidth(90),
               borderBottomWidth: 1,
               borderBottomColor: "#000",
               marginBottom: 15,
@@ -40,7 +40,7 @@ export default function JoinOurCommunity({ navigation }) {
           </View>
           <View
             style={{
-              width: "90%",
+              width: responsiveScreenWidth(90),
               borderBottomWidth: 1,
               borderBottomColor: "#000",
               marginBottom: 15,
@@ -54,7 +54,7 @@ export default function JoinOurCommunity({ navigation }) {
           </View>
           <View
             style={{
-              width: "90%",
+              width: responsiveScreenWidth(90),
               borderBottomWidth: 1,
               borderBottomColor: "#000",
               marginBottom: 15,
@@ -68,7 +68,7 @@ export default function JoinOurCommunity({ navigation }) {
           </View>
           <View
             style={{
-              width: "90%",
+              width: responsiveScreenWidth(90),
               borderBottomWidth: 1,
               borderBottomColor: "#000",
               marginBottom: 15,
