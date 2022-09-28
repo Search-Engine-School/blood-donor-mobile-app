@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -15,18 +16,23 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
-import React, {  useState, } from "react";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "./../common/TopCircle/TopCircle";
-
-
 
 export default function Register({ navigation }) {
   const [fullname, setFullname] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+  const [confirmationTxt, setConfirmationTxt] = useState("");
 
-
+  useEffect(() => {
+    if (password === confirmPass) {
+      setConfirmationTxt("Password matched");
+    } else {
+      setConfirmationTxt("pass doesn't match");
+    }
+  });
 
   return (
     <KeyboardAwareScrollView>
@@ -38,39 +44,45 @@ export default function Register({ navigation }) {
           resizeMode="cover"
           style={styles.image}
         >
-
           <View style={styles.registerBox}>
             <Text style={styles.text}>Create Account</Text>
             <Text style={styles.inputLabel}>Full Name</Text>
 
             <TextInput
               style={styles.input}
-             placeholder= "Enter Your Full name" 
-             value={fullname}
-             onChangeText={(text) => setFullname(text)}
-          autoCapitalize={"none"}/>
+              placeholder="Enter Your Full name"
+              value={fullname}
+              onChangeText={(text) => setFullname(text)}
+              autoCapitalize={"none"}
+            />
 
             <Text style={styles.inputLabel}>Phone Number</Text>
             <TextInput
               style={styles.input}
-              placeholder= "Enter Your Phone Number"
+              placeholder="Enter Your Phone Number"
               value={phone}
               onChangeText={(text) => setPhone(text)}
-           autoCapitalize={"none"}/>
+              autoCapitalize={"none"}
+            />
 
             <Text style={styles.inputLabel}>Password</Text>
 
-            <TextInput style={styles.input} placeholder= "Password" value={password}
-             secureTextEntry
-             onChangeText={(text) => setPassword(text)}/>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              value={password}
+              secureTextEntry
+              onChangeText={(text) => setPassword(text)}
+            />
 
             <Text style={styles.inputLabel}>Confirm Password</Text>
             <TextInput
               style={styles.input}
-              placeholder= "Confirm Password"
+              placeholder="Confirm Password"
               secureTextEntry
-              onChangeText={(text) => setPassword(text)}
-              />
+              onChangeText={(text) => setConfirmPass(text)}
+            />
+            <Text>{confirmationTxt}</Text>
           </View>
           <Pressable style={styles.btn}>
             <Text style={styles.textBtn}>Sign up</Text>
