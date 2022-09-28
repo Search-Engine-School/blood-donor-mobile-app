@@ -15,10 +15,19 @@ import {
   responsiveScreenHeight,
   responsiveScreenWidth,
 } from "react-native-responsive-dimensions";
+import React, {  useState, } from "react";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "./../common/TopCircle/TopCircle";
 
+
+
 export default function Register({ navigation }) {
+  const [fullname, setFullname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+
+
   return (
     <KeyboardAwareScrollView>
       <SafeAreaView style={styles.container}>
@@ -29,25 +38,39 @@ export default function Register({ navigation }) {
           resizeMode="cover"
           style={styles.image}
         >
+
           <View style={styles.registerBox}>
             <Text style={styles.text}>Create Account</Text>
             <Text style={styles.inputLabel}>Full Name</Text>
+
             <TextInput
               style={styles.input}
-              defaultValue="type your name"
-            ></TextInput>
+             placeholder= "Enter Your Full name" 
+             value={fullname}
+             onChangeText={(text) => setFullname(text)}
+          autoCapitalize={"none"}/>
+
             <Text style={styles.inputLabel}>Phone Number</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type your phone number"
-            ></TextInput>
+              placeholder= "Enter Your Phone Number"
+              value={phone}
+              onChangeText={(text) => setPhone(text)}
+           autoCapitalize={"none"}/>
+
             <Text style={styles.inputLabel}>Password</Text>
-            <TextInput style={styles.input} defaultValue="password"></TextInput>
+
+            <TextInput style={styles.input} placeholder= "Password" value={password}
+             secureTextEntry
+             onChangeText={(text) => setPassword(text)}/>
+
             <Text style={styles.inputLabel}>Confirm Password</Text>
             <TextInput
               style={styles.input}
-              defaultValue="confirm password"
-            ></TextInput>
+              placeholder= "Confirm Password"
+              secureTextEntry
+              onChangeText={(text) => setPassword(text)}
+              />
           </View>
           <Pressable style={styles.btn}>
             <Text style={styles.textBtn}>Sign up</Text>

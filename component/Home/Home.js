@@ -9,16 +9,14 @@ import {
 import bgImage from "../../assets/bg-image.png";
 
 export default function Home({ navigation }) {
+  setTimeout(()=>{
+       navigation.replace('Login')
+    },5000)
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <Image style={styles.logo} source={require("../../assets/logo.png")} />
-        <Pressable
-          onPress={() => navigation.navigate("SearchBlood")}
-          style={styles.btn}
-        >
-          <Text style={styles.textBtn}>Start</Text>
-        </Pressable>
+
       </ImageBackground>
     </SafeAreaView>
   );
