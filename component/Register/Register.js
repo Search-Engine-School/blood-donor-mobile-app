@@ -37,7 +37,6 @@ export default function Register({ navigation }) {
   return (
     <KeyboardAwareScrollView>
       <SafeAreaView style={styles.container}>
-        <StatusBar translucent={false}></StatusBar>
         <TopCircle></TopCircle>
         <ImageBackground
           source={bgImage}
@@ -109,6 +108,7 @@ export default function Register({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: StatusBar.currentHeight,
     height: responsiveScreenHeight(100),
   },
   registerBox: {

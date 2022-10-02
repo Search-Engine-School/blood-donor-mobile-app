@@ -79,7 +79,10 @@ export default function JoinOurCommunity({ navigation }) {
           </View>
         </View>
         <View>
-          <Pressable style={styles.btn}>
+          <Pressable
+            onPress={() => navigation.navigate("SearchBlood")}
+            style={styles.btn}
+          >
             <Text style={styles.textBtn}>Join the community</Text>
           </Pressable>
         </View>
