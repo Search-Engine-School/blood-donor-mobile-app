@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   Image,
   ImageBackground,
   Pressable,
@@ -17,10 +18,13 @@ import {
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
 
+const height = Dimensions.get("window").height;
+const width = Dimensions.get("window").width;
+const fontScale = Dimensions.get("window").fontScale;
+
 export default function Login({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar translucent={false}></StatusBar>
       <TopCircle></TopCircle>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
         <View style={styles.loginBox}>
@@ -45,12 +49,10 @@ export default function Login({ navigation }) {
               source={require("../../assets/google-icon.png")}
             ></Image>
           </View>
-          <Text style={styles.textBtn2} adjustsFontSizeToFit>
-            Sign in with Google
-          </Text>
+          <Text style={styles.textBtn2}>Sign in with Google</Text>
         </Pressable>
         <Pressable onPress={() => navigation.navigate("Register")}>
-          <Text adjustsFontSizeToFit style={styles.orText}>
+          <Text numberOfLines={2} style={styles.orText}>
             Create New Account?
           </Text>
         </Pressable>
@@ -62,22 +64,16 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: StatusBar.currentHeight,
   },
   loginBox: {
     zIndex: 11,
-    width: responsiveScreenWidth(90),
-  },
-  text: {
-    color: "#DB1F26",
-    textAlign: "center",
-    fontSize: responsiveScreenFontSize(2),
-    fontWeight: "700",
-    marginBottom: 14,
+    width: "90%",
   },
   inputLabel: {
     color: "rgba(68, 68, 68, 0.99)",
-    fontSize: responsiveScreenFontSize(3),
-    fontWeight: "600",
+    fontSize: 25 / fontScale,
+    fontWeight: "700",
     marginBottom: 15,
   },
   input: {
@@ -120,16 +116,15 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     color: "#fff",
-    fontSize: responsiveScreenFontSize(4),
+    fontSize: 30 / fontScale,
   },
   orText: {
     color: "#fff",
-    fontSize: responsiveScreenFontSize(3),
+    fontSize: 30 / fontScale,
     textAlign: "center",
   },
   btn2: {
     flexDirection: "row",
-    width: responsiveScreenWidth(50),
     height: 45,
     alignItems: "center",
     backgroundColor: "#279DF3",
@@ -152,7 +147,7 @@ const styles = StyleSheet.create({
   },
   textBtn2: {
     color: "#fff",
-    fontSize: responsiveScreenFontSize(2),
+    fontSize: 18 / fontScale,
     marginHorizontal: "2%",
   },
 });
