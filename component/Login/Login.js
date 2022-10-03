@@ -10,11 +10,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import {
-  responsiveScreenFontSize,
-  responsiveScreenHeight,
-  responsiveScreenWidth,
-} from "react-native-responsive-dimensions";
+import { responsiveScreenFontSize } from "react-native-responsive-dimensions";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
 
@@ -31,10 +27,10 @@ export default function Login({ navigation }) {
           <Text style={styles.inputLabel}>Phone Number</Text>
           <TextInput
             style={styles.input}
-            defaultValue="type your phone number"
+            placeholder="type your phone number"
           ></TextInput>
           <Text style={styles.inputLabel}>Password</Text>
-          <TextInput style={styles.input} defaultValue="password"></TextInput>
+          <TextInput style={styles.input} placeholder="password"></TextInput>
         </View>
         <Pressable style={styles.btn}>
           <Text adjustsFontSizeToFit style={styles.textBtn}>
@@ -51,7 +47,7 @@ export default function Login({ navigation }) {
           </View>
           <Text style={styles.textBtn2}>Sign in with Google</Text>
         </Pressable>
-        <Pressable onPress={() => navigation.navigate("Register")}>
+        <Pressable onPress={() => navigation.navigate("AllDonors")}>
           <Text numberOfLines={2} style={styles.orText}>
             Create New Account?
           </Text>
@@ -77,23 +73,16 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   input: {
-    height: responsiveScreenHeight(5),
+    height: height * 0.05,
     backgroundColor: "white",
     color: "#6A6A6A",
     fontSize: responsiveScreenFontSize(2),
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 5,
-    marginBottom: 15,
+    marginBottom: 10,
     shadowColor: "#9A9A9A",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 7.49,
-
-    elevation: 8,
+    elevation: 15,
   },
   image: {
     flex: 1,
@@ -104,8 +93,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   btn: {
-    width: responsiveScreenWidth(85),
-    height: responsiveScreenHeight(6),
+    width: width * 0.8,
+    paddingVertical: 8,
     backgroundColor: "#EB3738",
     borderRadius: 100,
     justifyContent: "center",

@@ -106,9 +106,7 @@ export default function SearchBlood() {
               }}
             ></TextInput>
             <Pressable style={styles.btn}>
-              <Text adjustsFontSizeToFit style={styles.textBtn}>
-                Search Blood
-              </Text>
+              <Text style={styles.textBtn}>Search Blood</Text>
             </Pressable>
           </View>
           <View style={styles.list}>
@@ -124,7 +122,6 @@ export default function SearchBlood() {
             <Pressable
               style={{
                 width: "50%",
-
                 borderRightWidth: 2,
                 borderColor: "#fff",
               }}

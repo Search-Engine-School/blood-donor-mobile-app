@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
+import AllDonors from "./component/AllDonors/AllDonors";
 import BloodGroup from "./component/BloodGroup/BloodGroup";
 import Home from "./component/Home/Home";
 import JoinOurCommunity from "./component/JoinOurCommunity/JoinOurCommunity";
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="BloodGroup" component={BloodGroup} />
         <Stack.Screen name="JoinOurCommunity" component={JoinOurCommunity} />
         <Stack.Screen name="SearchBlood" component={SearchBlood} />
+        <Stack.Screen name="AllDonors" component={AllDonors} />
       </Stack.Navigator>
     </NavigationContainer>
   );
