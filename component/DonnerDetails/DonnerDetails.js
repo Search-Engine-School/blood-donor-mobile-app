@@ -1,12 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image, FlatList,TouchableOpacity, Pressable} from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth
 } from "react-native-responsive-dimensions";
-import  { useState } from "react";
-import locationImage from "../../assets/location.png";
+
 const bloodGroup = [
   {
     id: 1,
@@ -68,14 +67,14 @@ export default function DonnerDetails() {
      <View style={styles.header}>
     <Text style={styles.text}>Donar Details</Text>
      </View>
-     <View>
+     <View style={styles.jakhusi}>
      <View style={styles.pinBox}>
      <View
             style={{
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
+
             }}
           >
             <Text style={styles.inputLabel}>FULL NAME</Text>
@@ -88,8 +87,7 @@ export default function DonnerDetails() {
             style={{
               width: "90%",
               borderBottomWidth: 1,
-              borderBottomColor: "#000",
-              marginBottom: 15,
+              borderBottomColor: "#000"
             }}
           >
             <Text style={styles.inputLabel}>Area</Text>
@@ -103,7 +101,6 @@ export default function DonnerDetails() {
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
             }}
           >
             <Text style={styles.inputLabel}>Phone</Text>
@@ -117,7 +114,7 @@ export default function DonnerDetails() {
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
+          
             }}
           >
             <Text style={styles.inputLabel}>Last Date of Donation</Text>
@@ -126,7 +123,7 @@ export default function DonnerDetails() {
           <View
             style={{
               width: "90%",
-              marginBottom: 15,
+              marginBottom: 5,
             }}
           >
             <Text style={styles.inputLabel}>Blood Groups</Text>
@@ -139,11 +136,21 @@ export default function DonnerDetails() {
               extraData={selectedId}
               key={2}
               numColumns={6}
-            /> 
+            />
             </View>  
+          <View style={styles.location}>
+            <Text style={styles.inputLabel1}>Location</Text>
 
           </View>
-          
+       
+            <Pressable style={styles.btn}>
+          <Text adjustsFontSizeToFit style={styles.textBtn}>
+          Save
+          </Text>
+        </Pressable>
+         
+          </View>
+        
      </View>
     </View>
   )
@@ -155,11 +162,10 @@ const styles = StyleSheet.create({
     },
   header:{
     position:'absolute',
-    width:429,
-    height:101,
-    top: 0,
+    width:'100%',
+    height:"20%",
    backgroundColor: "#DB1F26",
-   borderRadius:10
+   borderRadius:10,
   },
   text:{
     width:141,
@@ -170,47 +176,60 @@ const styles = StyleSheet.create({
     fontWeight:"700",
     color:'#FFFFFF'
   },  
+  inputLabel: {
+    color: "black",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "600",},
   pinBox: {
     marginTop:100,
     height: responsiveScreenHeight(100),
     width: responsiveScreenWidth(105),
     zIndex: 10,
     alignItems: "center",
-    justifyContent: "center",
     borderRadius: 10,
     elevation: 20,
     backgroundColor: "#fff",
   },
-  inputLabel: {
-    color: "black",
-    fontSize: responsiveScreenFontSize(2),
-    fontWeight: "600",
-  },
+
   bloodGrpList: {
     height: responsiveScreenHeight(20),
   },
   item: {
     height: responsiveScreenHeight(3),
-    width: responsiveScreenHeight(3),
+    width: '10%',
     border: 12,
     borderColor:'red',
     elevation: 10,
     alignItems: "center",
     marginLeft:25,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    right:15
+  },
+  location: {
+    height: 200,
+    width: '80%',
+    bottom:100,
+    left:20
+  },
+  inputLabel1: {
+    color: "black",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "600",
+    right: 40
   },
   btn: {
-    width: responsiveScreenWidth(60),
+    width: responsiveScreenWidth(70),
     height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
     elevation: 20,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 15,
+    bottom:100
   },
   textBtn: {
     color: "#fff",
+    fontSize: 30,
   },
+ 
   });
