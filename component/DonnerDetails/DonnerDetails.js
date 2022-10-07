@@ -142,7 +142,11 @@ export default function DonnerDetails() {
             </View>  
           <View style={styles.location}>
             <Text style={styles.inputLabel1}>Location</Text>
-
+            <Image
+              resizeMode="contain"
+              style={styles.image}
+              source={require("../../assets/rectangle.png")}
+            />
           </View>
        
             <Pressable style={styles.btn}>
@@ -235,5 +239,8 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 30,
   },
- 
+  image: {
+    width: "90%",
+    height: "100%",
+  }
   });
