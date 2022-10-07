@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import arrow from "../../assets/arrow-icon.png";
+import { FlatList, Pressable, StyleSheet,Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth
 } from "react-native-responsive-dimensions";
-
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 const bloodGroup = [
   {
     id: 1,
@@ -65,6 +66,7 @@ export default function DonnerDetails() {
   return (
     <View style={styles.container}>
      <View style={styles.header}>
+      <MaterialCommunityIcons name='arrow-left' style={{top:51,left:40, color:'#fff',padding:0,fontSize:20,}}></MaterialCommunityIcons>
     <Text style={styles.text}>Donar Details</Text>
      </View>
      <View style={styles.jakhusi}>
@@ -80,7 +82,7 @@ export default function DonnerDetails() {
             <Text style={styles.inputLabel}>FULL NAME</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type your name"
+             placeholder="type your name"
             ></TextInput>
           </View>
           <View
@@ -93,7 +95,7 @@ export default function DonnerDetails() {
             <Text style={styles.inputLabel}>Area</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type area"
+             placeholder="type your area"
             ></TextInput>
           </View>
           <View
@@ -106,7 +108,7 @@ export default function DonnerDetails() {
             <Text style={styles.inputLabel}>Phone</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type your Phone"
+             placeholder="Phone number"
             ></TextInput>
           </View>
           <View
@@ -118,7 +120,7 @@ export default function DonnerDetails() {
             }}
           >
             <Text style={styles.inputLabel}>Last Date of Donation</Text>
-            <TextInput style={styles.input} defaultValue="01/01/90"></TextInput>
+            <TextInput style={styles.input} placeholder="01/01/90"></TextInput>
           </View>
           <View
             style={{
@@ -163,15 +165,17 @@ const styles = StyleSheet.create({
   header:{
     position:'absolute',
     width:'100%',
-    height:"20%",
+    height:"35%",
    backgroundColor: "#DB1F26",
    borderRadius:10,
-  },
+   marginRight:20
+  }, 
+
   text:{
-    width:141,
-    height:25,
-    marginTop:46,
-    marginLeft:77,
+    width:'100%',
+    height:'30%',
+    marginTop:26,
+    marginLeft:107,
     fontSize:20,
     fontWeight:"700",
     color:'#FFFFFF'
@@ -225,7 +229,7 @@ const styles = StyleSheet.create({
     elevation: 20,
     justifyContent: "center",
     alignItems: "center",
-    bottom:100
+    bottom:60
   },
   textBtn: {
     color: "#fff",
