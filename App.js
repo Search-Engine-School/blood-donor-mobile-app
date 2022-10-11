@@ -3,13 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import AllDonors from "./component/AllDonors/AllDonors";
 import BloodGroup from "./component/BloodGroup/BloodGroup";
+import DonnerDetails from "./component/DonnerDetails/DonnerDetails";
 import Home from "./component/Home/Home";
 import JoinOurCommunity from "./component/JoinOurCommunity/JoinOurCommunity";
 import Login from "./component/Login/Login";
 import Register from "./component/Register/Register";
 import SearchBlood from "./component/SearchBlood/SearchBlood";
 import Verification from "./component/Verification/Verification";
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -20,7 +20,7 @@ export default function App() {
           headerShown: false,
         }}
         initialRouteName="Home"
-      >
+      ><Stack.Screen name="DonnerDetails" component={DonnerDetails} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />

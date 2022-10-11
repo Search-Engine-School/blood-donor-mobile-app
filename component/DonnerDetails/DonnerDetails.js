@@ -1,12 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image, FlatList,TouchableOpacity, Pressable} from 'react-native';
+import React, { useState } from 'react';
+import arrow from "../../assets/arrow-icon.png";
+import { FlatList, Pressable, StyleSheet,Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import {
   responsiveScreenFontSize,
   responsiveScreenHeight,
   responsiveScreenWidth
 } from "react-native-responsive-dimensions";
-import  { useState } from "react";
-import locationImage from "../../assets/location.png";
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 const bloodGroup = [
   {
     id: 1,
@@ -66,36 +66,36 @@ export default function DonnerDetails() {
   return (
     <View style={styles.container}>
      <View style={styles.header}>
+      <MaterialCommunityIcons name='arrow-left' style={{top:51,left:40, color:'#fff',padding:0,fontSize:20,}}></MaterialCommunityIcons>
     <Text style={styles.text}>Donar Details</Text>
      </View>
-     <View>
+     <View style={styles.jakhusi}>
      <View style={styles.pinBox}>
      <View
             style={{
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
+
             }}
           >
             <Text style={styles.inputLabel}>FULL NAME</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type your name"
+             placeholder="type your name"
             ></TextInput>
           </View>
           <View
             style={{
               width: "90%",
               borderBottomWidth: 1,
-              borderBottomColor: "#000",
-              marginBottom: 15,
+              borderBottomColor: "#000"
             }}
           >
             <Text style={styles.inputLabel}>Area</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type area"
+             placeholder="type your area"
             ></TextInput>
           </View>
           <View
@@ -103,13 +103,12 @@ export default function DonnerDetails() {
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
             }}
           >
             <Text style={styles.inputLabel}>Phone</Text>
             <TextInput
               style={styles.input}
-              defaultValue="type your Phone"
+             placeholder="Phone number"
             ></TextInput>
           </View>
           <View
@@ -117,16 +116,16 @@ export default function DonnerDetails() {
               width: "90%",
               borderBottomWidth: 1,
               borderBottomColor: "#000",
-              marginBottom: 15,
+          
             }}
           >
             <Text style={styles.inputLabel}>Last Date of Donation</Text>
-            <TextInput style={styles.input} defaultValue="01/01/90"></TextInput>
+            <TextInput style={styles.input} placeholder="01/01/90"></TextInput>
           </View>
           <View
             style={{
               width: "90%",
-              marginBottom: 15,
+              marginBottom: 5,
             }}
           >
             <Text style={styles.inputLabel}>Blood Groups</Text>
@@ -139,11 +138,25 @@ export default function DonnerDetails() {
               extraData={selectedId}
               key={2}
               numColumns={6}
-            /> 
+            />
             </View>  
-
+          <View style={styles.location}>
+            <Text style={styles.inputLabel1}>Location</Text>
+            <Image
+              resizeMode="contain"
+              style={styles.image}
+              source={require("../../assets/rectangle.png")}
+            />
           </View>
-          
+       
+            <Pressable style={styles.btn}>
+          <Text adjustsFontSizeToFit style={styles.textBtn}>
+          Save
+          </Text>
+        </Pressable>
+         
+          </View>
+        
      </View>
     </View>
   )
@@ -155,62 +168,79 @@ const styles = StyleSheet.create({
     },
   header:{
     position:'absolute',
-    width:429,
-    height:101,
-    top: 0,
+    width:'100%',
+    height:"35%",
    backgroundColor: "#DB1F26",
-   borderRadius:10
-  },
+   borderRadius:10,
+   marginRight:20
+  }, 
+
   text:{
-    width:141,
-    height:25,
-    marginTop:46,
-    marginLeft:77,
+    width:'100%',
+    height:'30%',
+    marginTop:26,
+    marginLeft:107,
     fontSize:20,
     fontWeight:"700",
     color:'#FFFFFF'
   },  
+  inputLabel: {
+    color: "black",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "600",},
   pinBox: {
     marginTop:100,
     height: responsiveScreenHeight(100),
     width: responsiveScreenWidth(105),
     zIndex: 10,
     alignItems: "center",
-    justifyContent: "center",
     borderRadius: 10,
     elevation: 20,
     backgroundColor: "#fff",
   },
-  inputLabel: {
-    color: "black",
-    fontSize: responsiveScreenFontSize(2),
-    fontWeight: "600",
-  },
+
   bloodGrpList: {
     height: responsiveScreenHeight(20),
   },
   item: {
     height: responsiveScreenHeight(3),
-    width: responsiveScreenHeight(3),
+    width: '10%',
     border: 12,
     borderColor:'red',
     elevation: 10,
     alignItems: "center",
     marginLeft:25,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    right:15
+  },
+  location: {
+    height: 200,
+    width: '80%',
+    bottom:100,
+    left:20
+  },
+  inputLabel1: {
+    color: "black",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "600",
+    right: 40
   },
   btn: {
-    width: responsiveScreenWidth(60),
+    width: responsiveScreenWidth(70),
     height: responsiveScreenHeight(6),
     backgroundColor: "#EB3738",
     borderRadius: 100,
     elevation: 20,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 15,
+    bottom:60
   },
   textBtn: {
     color: "#fff",
+    fontSize: 30,
   },
+  image: {
+    width: "90%",
+    height: "100%",
+  }
   });

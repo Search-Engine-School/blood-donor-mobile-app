@@ -11,7 +11,7 @@ import bgImage from "../../assets/bg-image.png";
 export default function Home({ navigation }) {
   setTimeout(()=>{
        navigation.replace('Login')
-    },5000)
+    },1000)
   return (
     <SafeAreaView style={styles.container}>
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.image}>
