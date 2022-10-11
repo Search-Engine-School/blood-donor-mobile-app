@@ -47,7 +47,7 @@ export default function Login({ navigation }) {
           </View>
           <Text style={styles.textBtn2}>Sign in with Google</Text>
         </Pressable>
-        <Pressable onPress={() => navigation.navigate("DonnerDetails")}>
+        <Pressable onPress={() => navigation.navigate("SearchBlood2")}>
           <Text numberOfLines={2} style={styles.orText}>
             Create New Account?
           </Text>
