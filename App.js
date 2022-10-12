@@ -12,6 +12,8 @@ import Register from "./component/Register/Register";
 import SearchBlood from "./component/SearchBlood/SearchBlood";
 import SearchBlood2 from "./component/SearchBlood2/SearchBlood2";
 import Verification from "./component/Verification/Verification";
+import ThalassemiaProfile from './component/ThalassemiaProfile/ThalassemiaProfile'
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -27,6 +29,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ThalassemiaProfile" component={ThalassemiaProfile} />
         <Stack.Screen name="verify" component={Verification} />
         <Stack.Screen name="BloodGroup" component={BloodGroup} />
         <Stack.Screen name="JoinOurCommunity" component={JoinOurCommunity} />
