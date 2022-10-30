@@ -37,19 +37,12 @@ export default function Login({ navigation }) {
             Login
           </Text>
         </Pressable>
-        <Text style={styles.orText}>Or</Text>
-        <Pressable style={styles.btn2}>
-          <View style={styles.gicon}>
-            <Image
-              style={styles.googleImage}
-              source={require("../../assets/google-icon.png")}
-            ></Image>
-          </View>
-          <Text style={styles.textBtn2}>Sign in with Google</Text>
-        </Pressable>
-        <Pressable onPress={() => navigation.navigate("DropdownBoard")}>
+        <Text adjustsFontSizeToFit style={styles.textBtn1}>
+          Don't Have an account?
+        </Text>
+        <Pressable onPress={() => navigation.navigate("Register")}>
           <Text numberOfLines={2} style={styles.orText}>
-            Create New Account?
+            Create New Account!
           </Text>
         </Pressable>
       </ImageBackground>
@@ -121,20 +114,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 20,
   },
-  gicon: {
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    height: 42,
-    width: 42,
-    marginHorizontal: 2,
-    alignItems: "center",
-    borderRadius: 5,
-  },
-  googleImage: {
-    height: 25,
-    width: 25,
-  },
-  textBtn2: {
+  textBtn1: {
     color: "#fff",
     fontSize: 18 / fontScale,
     marginHorizontal: "2%",

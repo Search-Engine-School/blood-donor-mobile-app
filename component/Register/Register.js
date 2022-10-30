@@ -83,21 +83,11 @@ export default function Register({ navigation }) {
             />
             <Text>{confirmationTxt}</Text>
           </View>
-          <Pressable style={styles.btn}>
-            <Text style={styles.textBtn}>Sign up</Text>
-          </Pressable>
-          <Text style={styles.orText}>Or</Text>
           <Pressable
             onPress={() => navigation.navigate("verify")}
-            style={styles.btn2}
+            style={styles.btn}
           >
-            <View style={styles.gicon}>
-              <Image
-                style={styles.googleImage}
-                source={require("../../assets/google-icon.png")}
-              ></Image>
-            </View>
-            <Text style={styles.textBtn2}>Sign up with Google</Text>
+            <Text style={styles.textBtn}>Sign up</Text>
           </Pressable>
         </ImageBackground>
       </SafeAreaView>
@@ -163,8 +153,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 15,
-    marginBottom: 15,
+    marginTop: "25%",
   },
   textBtn: {
     color: "#fff",
@@ -183,23 +172,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 15,
     marginBottom: responsiveScreenHeight(3),
-  },
-  gicon: {
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    height: 42,
-    width: 42,
-    marginHorizontal: 2,
-    alignItems: "center",
-    borderRadius: 5,
-  },
-  googleImage: {
-    height: 25,
-    width: 25,
-  },
-  textBtn2: {
-    color: "#fff",
-    fontSize: responsiveScreenFontSize(2),
-    marginHorizontal: responsiveScreenWidth(2),
   },
 });
