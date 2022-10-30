@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Picker } from "@react-native-picker/picker";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   responsiveScreenFontSize,
@@ -11,6 +12,8 @@ import bell from "../../../assets/notification.png";
 import settings from "../../../assets/settings.png";
 
 export default function TopBar() {
+  const [picker, setPicker] = useState(null);
+
   return (
     <View style={styles.topbar}>
       <View style={styles.logoName}>
@@ -63,6 +66,21 @@ export default function TopBar() {
             source={settings}
           ></Image>
         </Pressable>
+
+        <View>
+          <Picker
+            style={{ color: "#fff", fontWeight: "bold", marginLeft: 20 }}
+            selectedValue={picker}
+            onValueChange={(itemValue) => setPicker(itemValue)}
+          >
+            <Picker.Item label="Events" value="Events" />
+            <Picker.Item label="Didn't Donate" value="Didn't Donate" />
+            <Picker.Item label="Helpline" value="Helpline" />
+            <Picker.Item label="Donate us" value="Donate us" />
+            <Picker.Item label="Contact us" value="Contact us" />
+            <Picker.Item label="Settings" value="Settings" />
+          </Picker>
+        </View>
       </View>
     </View>
   );
