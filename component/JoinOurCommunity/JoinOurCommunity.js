@@ -83,7 +83,7 @@ export default function JoinOurCommunity({ navigation }) {
             onPress={() => navigation.navigate("SearchBlood")}
             style={styles.btn}
           >
-            <Text style={styles.textBtn}>Join the community</Text>
+            <Text style={styles.joinBtn}>Join the community</Text>
           </Pressable>
         </View>
       </ImageBackground>
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
   pinBox: {
     height: responsiveScreenHeight(50),
     width: responsiveScreenWidth(95),
+    top: "2%",
     zIndex: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -128,10 +129,9 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 15,
+    top: "90%",
   },
-  textBtn: {
+  joinBtn: {
     color: "#fff",
     fontSize: responsiveScreenFontSize(3),
     fontWeight: "700",

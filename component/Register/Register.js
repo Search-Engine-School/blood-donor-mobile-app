@@ -83,13 +83,12 @@ export default function Register({ navigation }) {
             />
             <Text>{confirmationTxt}</Text>
           </View>
-          <Pressable style={styles.btn}>
-            <Text style={styles.textBtn}>Sign up</Text>
-          </Pressable>
           <Pressable
             onPress={() => navigation.navigate("verify")}
-            style={styles.btn2}
-          ></Pressable>
+            style={styles.btn}
+          >
+            <Text style={styles.textBtn}>Sign up</Text>
+          </Pressable>
         </ImageBackground>
       </SafeAreaView>
     </KeyboardAwareScrollView>

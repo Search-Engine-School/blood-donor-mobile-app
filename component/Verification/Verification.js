@@ -25,7 +25,7 @@ export default function Verification({ navigation }) {
         <View style={styles.pinBox}>
           <Text style={styles.headingTxt}>PHONE VERIFICATION</Text>
           <Text style={styles.paragraphTxt}>
-            Enter the OTP we have sent on your mobile number: +3064567873
+            Enter the OTP we have sent on your mobile number
           </Text>
           <View style={styles.inputPin}>
             <TextInput style={styles.input}></TextInput>
