@@ -10,11 +10,12 @@ import JoinOurCommunity from "./component/JoinOurCommunity/JoinOurCommunity";
 import Login from "./component/Login/Login";
 import Register from "./component/Register/Register";
 import SearchBlood from "./component/SearchBlood/SearchBlood";
-import SearchBlood2 from "./component/SearchBlood2/SearchBlood2";
+import Hospital from "./component/Hospital/Hospital";
 import Verification from "./component/Verification/Verification";
 import ThalassemiaProfile from "./component/ThalassemiaProfile/ThalassemiaProfile";
 import BloodBuddyId from "./component/BloodBuddyId/BloodBuddyId";
 import DropdownBoard from "./component/DropdownBoard/DropdownBoard";
+import Vaccination from "./component/Vaccination/Vaccination";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -41,8 +42,9 @@ export default function App() {
         <Stack.Screen name="DropdownBoard" component={DropdownBoard} />
         <Stack.Screen name="BloodBuddyId" component={BloodBuddyId} />
         <Stack.Screen name="AllDonors" component={AllDonors} />
+        <Stack.Screen name="Vaccination" component={Vaccination} />
+        <Stack.Screen name="Hospital" component={Hospital} />
         <Stack.Screen name="DoctorsList" component={DoctorsList} />
-        <Stack.Screen name="SearchBlood2" component={SearchBlood2} />
       </Stack.Navigator>
     </NavigationContainer>
   );

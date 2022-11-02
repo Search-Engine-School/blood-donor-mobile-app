@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   Dimensions,
-  FlatList,
+  Button,
   ImageBackground,
   KeyboardAvoidingView,
   Pressable,
@@ -22,45 +22,6 @@ import bgImg from "../../assets/bg-three.png";
 import TopBar from "../common/TopBar/TopBar";
 
 const Width = Dimensions.get("window").width;
-
-const data = [
-  {
-    key: 1,
-    name: "Thalassemia",
-  },
-  {
-    key: 2,
-    name: "Blood Calculator",
-  },
-  {
-    key: 3,
-    name: "Thalassemia",
-  },
-  {
-    key: 4,
-    name: "Thalassemia",
-  },
-  {
-    key: 5,
-    name: "Thalassemia",
-  },
-  {
-    key: 6,
-    name: "Thalassemia",
-  },
-  {
-    key: 7,
-    name: "Thalassemia",
-  },
-  {
-    key: 8,
-    name: "Thalassemia",
-  },
-  {
-    key: 9,
-    name: "Thalassemia",
-  },
-];
 const numOfColumn = 3;
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
@@ -68,23 +29,7 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
   </TouchableOpacity>
 );
 
-export default function SearchBlood() {
-  const [selectedId, setSelectedId] = useState(null);
-
-  const renderItem = ({ item }) => {
-    const backgroundColor = item.key === selectedId ? "#DB1F26" : "#fff";
-    const color = item.key === selectedId ? "#fff" : "#DB1F26";
-
-    return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.key)}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
-      />
-    );
-  };
-
+export default function SearchBlood({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar translucent={false}></StatusBar>
@@ -94,12 +39,11 @@ export default function SearchBlood() {
           <View style={styles.inputView}>
             <TextInput
               multiline={true}
-              numberOfLines={5}
               textAlignVertical="top"
               style={{
                 backgroundColor: "#fff",
-                width: responsiveScreenWidth(95),
-                height: responsiveScreenHeight(15),
+                width: responsiveScreenWidth(85),
+                height: responsiveScreenHeight(7),
                 padding: responsiveScreenHeight(2),
                 fontSize: responsiveScreenFontSize(3),
                 borderRadius: 10,
@@ -109,21 +53,70 @@ export default function SearchBlood() {
               <Text style={styles.textBtn}>Search Blood</Text>
             </Pressable>
           </View>
-          <View style={styles.list}>
-            <FlatList
-              data={data}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.key}
-              extraData={selectedId}
-              numColumns={numOfColumn}
-            ></FlatList>
+
+          <View style={{ width: "100%", marginTop: "35%" }}>
+            <View style={{ flexDirection: "row", width: "90%", bottom: "18%" }}>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("ThalassemiaProfile")}
+              >
+                <Text style={styles.Txt}>Thalassemia</Text>
+              </Pressable>
+              <Pressable style={styles.profileBtn}>
+                <Text style={styles.Txt}>News Feed</Text>
+              </Pressable>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("Vaccination")}
+              >
+                <Text style={styles.Txt}>Vaccination</Text>
+              </Pressable>
+            </View>
+            <View style={{ flexDirection: "row", width: "90%", bottom: "18%" }}>
+              <Pressable style={styles.profileBtn}>
+                <Text style={styles.Txt}>BMI Meter</Text>
+              </Pressable>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("AllDonors")}
+              >
+                <Text style={styles.Txt}>All Donors</Text>
+              </Pressable>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("BloodBuddyId")}
+              >
+                <Text style={styles.Txt}>Blood Buddy</Text>
+              </Pressable>
+            </View>
+            <View style={{ flexDirection: "row", width: "90%", bottom: "18%" }}>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("DoctorsList")}
+              >
+                <Text style={styles.Txt}>Doctor List</Text>
+              </Pressable>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("Hospital")}
+              >
+                <Text style={styles.Txt}>Hospital</Text>
+              </Pressable>
+              <Pressable
+                style={styles.profileBtn}
+                onPress={() => navigation.navigate("DoctorsList")}
+              >
+                <Text style={styles.Txt}>Blood Myth</Text>
+              </Pressable>
+            </View>
           </View>
+
           <View style={styles.memberBtn}>
             <Pressable
               style={{
                 width: "50%",
                 borderRightWidth: 2,
-                borderColor: "#fff",
+                borderColor: "#f",
               }}
             >
               <Text style={styles.btnText}>Community Member</Text>
@@ -156,6 +149,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     marginVertical: responsiveScreenHeight(2),
+    marginBottom: "10%",
   },
   btn: {
     width: responsiveScreenWidth(85),
@@ -170,24 +164,23 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     color: "#fff",
-    fontSize: responsiveScreenFontSize(4),
+    fontSize: responsiveScreenFontSize(3),
   },
-  list: {
-    flex: 2,
+  profileBtn: {
+    width: responsiveScreenWidth(32),
+    height: responsiveScreenHeight(16),
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: responsiveScreenHeight(2),
-  },
-  item: {
-    width: responsiveScreenWidth(30),
-    height: responsiveScreenWidth(30),
-    justifyContent: "center",
-    alignItems: "center",
+    margin: "0.5%",
     elevation: 20,
-    borderWidth: 2,
     borderColor: "#EB3738",
-    margin: responsiveScreenWidth(0.5),
-    borderRadius: 5,
+    borderWidth: 2,
+  },
+  Txt: {
+    color: "#EB3738",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "bold",
   },
   title: {
     fontSize: responsiveScreenFontSize(2.2),
@@ -197,7 +190,7 @@ const styles = StyleSheet.create({
   memberBtn: {
     backgroundColor: "#EB3738",
     width: responsiveScreenWidth(95),
-    bottom: responsiveScreenHeight(2),
+    bottom: responsiveScreenHeight(6),
     elevation: 20,
     borderRadius: 10,
     justifyContent: "center",

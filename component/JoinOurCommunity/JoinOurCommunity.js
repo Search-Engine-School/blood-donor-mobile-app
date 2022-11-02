@@ -101,8 +101,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pinBox: {
-    height: responsiveScreenHeight(50),
-    width: responsiveScreenWidth(95),
+    width: "95%",
     top: "2%",
     zIndex: 10,
     alignItems: "center",
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
     fontSize: responsiveScreenFontSize(2),
   },
   btn: {
-    width: responsiveScreenWidth(80),
+    width: "80%",
     height: responsiveScreenHeight(6),
     paddingHorizontal: 30,
     backgroundColor: "#EB3738",
@@ -133,7 +132,7 @@ const styles = StyleSheet.create({
   },
   joinBtn: {
     color: "#fff",
-    fontSize: responsiveScreenFontSize(3),
+    fontSize: 18,
     fontWeight: "700",
   },
 });

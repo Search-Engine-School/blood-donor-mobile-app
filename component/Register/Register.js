@@ -18,23 +18,23 @@ import {
 } from "react-native-responsive-dimensions";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "./../common/TopCircle/TopCircle";
+import axios from "axios";
 
 export default function Register({ navigation }) {
-  const [fullname, setFullname] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setFullname] = useState("");
+  const [mobile, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
+  const [cPassword, setConfirmPass] = useState("");
   const [confirmationTxt, setConfirmationTxt] = useState("");
 
   useEffect(() => {
-    if (password === confirmPass) {
+    if (password === cPassword) {
       setConfirmationTxt("Password matched");
     } else {
       setConfirmationTxt("pass doesn't match");
     }
   });
   const handleSubmit = async () => {
-    // console.log({ name, mobile, password, cPassword });
     const response = await axios.post(
       "https://busy-rose-bull-belt.cyclic.app/create",
       {
@@ -44,7 +44,7 @@ export default function Register({ navigation }) {
         cPassword,
       }
     );
-    console.log(response.data);
+    console.warn(response.data);
   };
 
   return (
@@ -63,7 +63,7 @@ export default function Register({ navigation }) {
             <TextInput
               style={styles.input}
               placeholder="Enter Your Full name"
-              value={fullname}
+              value={name}
               onChangeText={(text) => setFullname(text)}
               autoCapitalize={"none"}
             />
@@ -72,7 +72,7 @@ export default function Register({ navigation }) {
             <TextInput
               style={styles.input}
               placeholder="Enter Your Phone Number"
-              value={phone}
+              value={mobile}
               onChangeText={(text) => setPhone(text)}
               autoCapitalize={"none"}
             />
@@ -92,12 +92,14 @@ export default function Register({ navigation }) {
               style={styles.input}
               placeholder="Confirm Password"
               secureTextEntry
+              value={cPassword}
               onChangeText={(text) => setConfirmPass(text)}
             />
             <Text>{confirmationTxt}</Text>
           </View>
           <Pressable
-            onPress={() => navigation.navigate("verify")}
+            onPress={handleSubmit}
+            // onPress={() => navigation.navigate("verify")}
             style={styles.btn}
           >
             <Text style={styles.textBtn}>Sign up</Text>
