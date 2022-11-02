@@ -33,6 +33,19 @@ export default function Register({ navigation }) {
       setConfirmationTxt("pass doesn't match");
     }
   });
+  const handleSubmit = async () => {
+    // console.log({ name, mobile, password, cPassword });
+    const response = await axios.post(
+      "https://busy-rose-bull-belt.cyclic.app/create",
+      {
+        name,
+        mobile,
+        password,
+        cPassword,
+      }
+    );
+    console.log(response.data);
+  };
 
   return (
     <KeyboardAwareScrollView>
