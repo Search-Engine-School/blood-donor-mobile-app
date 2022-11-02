@@ -1,6 +1,5 @@
 import {
   Dimensions,
-  Image,
   ImageBackground,
   Pressable,
   SafeAreaView,
@@ -9,16 +8,33 @@ import {
   Text,
   TextInput,
   View,
+  onPress,
 } from "react-native";
+import React, { useEffect, useState } from "react";
 import { responsiveScreenFontSize } from "react-native-responsive-dimensions";
 import bgImage from "../../assets/register-bg.png";
 import TopCircle from "../common/TopCircle/TopCircle";
+import axios from "axios";
 
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 const fontScale = Dimensions.get("window").fontScale;
 
 export default function Login({ navigation }) {
+  const [mobile, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    // console.log({ mobile, password,});
+    const response = await axios.post(
+      "https://busy-rose-bull-belt.cyclic.app/login",
+      {
+        mobile,
+        password,
+      }
+    );
+    console.log(response.data);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <TopCircle></TopCircle>
@@ -28,11 +44,22 @@ export default function Login({ navigation }) {
           <TextInput
             style={styles.input}
             placeholder="type your phone number"
+            value={mobile}
+            onChangeText={(text) => setPhone(text)}
           ></TextInput>
           <Text style={styles.inputLabel}>Password</Text>
-          <TextInput style={styles.input} placeholder="password"></TextInput>
+          <TextInput
+            style={styles.input}
+            placeholder="password"
+            value={password}
+            secureTextEntry
+            onChangeText={(text) => setPassword(text)}
+          ></TextInput>
         </View>
-        <Pressable style={styles.btn}>
+        <Pressable
+          style={styles.btn}
+          onPress={() => navigation.navigate("verify")}
+        >
           <Text adjustsFontSizeToFit style={styles.textBtn}>
             Login
           </Text>
@@ -40,7 +67,7 @@ export default function Login({ navigation }) {
         <Text adjustsFontSizeToFit style={styles.textBtn1}>
           Don't Have an account?
         </Text>
-        <Pressable onPress={() => navigation.navigate("Register")}>
+        <Pressable onPress={() => navigation.navigate("SearchBlood")}>
           <Text numberOfLines={2} style={styles.orText}>
             Create New Account!
           </Text>
