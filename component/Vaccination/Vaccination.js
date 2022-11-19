@@ -8,7 +8,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  Image,
+  Button,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -52,21 +52,11 @@ export default function Vaccination({ navigation }) {
           </View>
 
           <View style={styles.memberBtn}>
-            <Pressable
-              style={{
-                width: "50%",
-                borderRightWidth: 2,
-                borderColor: "#fff",
-              }}
-            >
-              <Text style={styles.btnText}>Community Member</Text>
+            <Pressable style={{ marginHorizontal: "3%" }}>
+              <Button title="Community Member" color="#EB3738" />
             </Pressable>
-            <Pressable
-              style={{
-                width: "50%",
-              }}
-            >
-              <Text style={styles.btnText}>Active Donor</Text>
+            <Pressable>
+              <Button title="Active Donor" color="#EB3738" />
             </Pressable>
           </View>
         </KeyboardAvoidingView>
@@ -104,7 +94,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     left: "8%",
-    marginBottom: "3%",
+    marginBottom: "10%",
   },
   info: {
     width: responsiveScreenWidth(65),
@@ -122,7 +112,6 @@ const styles = StyleSheet.create({
     fontWeight: "900",
   },
   memberBtn: {
-    backgroundColor: "#EB3738",
     width: responsiveScreenWidth(98),
     bottom: responsiveScreenHeight(2),
     elevation: 20,
@@ -130,12 +119,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    left: "1%",
-  },
-  btnText: {
-    color: "#fff",
-    textAlign: "center",
-    fontSize: responsiveScreenFontSize(3),
-    fontWeight: "700",
   },
 });

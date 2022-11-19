@@ -112,21 +112,11 @@ export default function SearchBlood({ navigation }) {
           </View>
 
           <View style={styles.memberBtn}>
-            <Pressable
-              style={{
-                width: "50%",
-                borderRightWidth: 2,
-                borderColor: "#f",
-              }}
-            >
-              <Text style={styles.btnText}>Community Member</Text>
+            <Pressable style={styles.communityBtn}>
+              <Text style={styles.textBtn2}>Community Member</Text>
             </Pressable>
-            <Pressable
-              style={{
-                width: "50%",
-              }}
-            >
-              <Text style={styles.btnText}>Active Donor</Text>
+            <Pressable style={styles.communityBtn}>
+              <Text style={styles.textBtn2}>Active Donor</Text>
             </Pressable>
           </View>
         </KeyboardAvoidingView>
@@ -188,7 +178,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   memberBtn: {
-    backgroundColor: "#EB3738",
     width: responsiveScreenWidth(95),
     bottom: responsiveScreenHeight(6),
     elevation: 20,
@@ -196,11 +185,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    marginLeft: "2%",
   },
-  btnText: {
+  communityBtn: {
+    width: responsiveScreenWidth(47),
+    height: responsiveScreenHeight(6),
+    backgroundColor: "#EB3738",
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 20,
+    marginHorizontal: "1%",
+  },
+  textBtn2: {
     color: "#fff",
-    textAlign: "center",
-    fontSize: responsiveScreenFontSize(3),
-    fontWeight: "700",
+    fontSize: responsiveScreenFontSize(2),
+    fontWeight: "900",
   },
 });
